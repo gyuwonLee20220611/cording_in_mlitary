@@ -1,0 +1,27 @@
+/* 입력받은 값을 2진수로 바꾸는 프로그램*/ 
+#include <stdio.h>
+
+void BinaryConverter (int num, int * binnum){
+    int i = 10;
+    int a = 0;
+    for (i; i > -1; i--){
+        if (binnum[i] <= num){
+            num -= binnum[i];
+            printf("1");
+            a++;
+        }
+        else if(a > 0 && binnum[i] > num)
+            printf("0");
+        
+        
+    }
+}
+
+int main (){
+    int num;
+    int binnum[11] ={1,2,4,8,16,32,64,128,256,512,1024};
+    printf("10진수 정수 입력: ");
+    scanf("%d",&num);
+    BinaryConverter(num, binnum);
+    
+}
