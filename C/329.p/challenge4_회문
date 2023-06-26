@@ -1,0 +1,42 @@
+/*문자열을 입력받고 그 문자열이 회문인지 아닌지를 판별하는 프로그램을 만들어라*/
+#include <stdio.h>
+
+char StrLen(char * str){
+    int i;
+    
+    while (str[i] != 0){
+        i++;
+    }
+    return (i);
+}
+
+void Palindrome (char * str, int len){
+    int j = 0;
+    int k = len-1;
+
+    for (int i = len/2; i > 0; i--){
+        if (str[j] == str[k]){
+            j++;
+            k--;
+            if (i == 1)
+                printf("회문 입니다.");
+        }
+        else{
+            printf("회문이 아닙니다.");
+            break;
+        }
+    }
+    
+}
+
+
+int main (){
+    char str[100];
+    int len;
+    
+    printf("문자열 입력: ");
+    scanf("%s",str);
+    
+    len = StrLen(str);
+    Palindrome(str, len);
+}
