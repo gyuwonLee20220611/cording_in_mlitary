@@ -1,0 +1,74 @@
+#include <stdio.h>
+void ShowArr(int arr[][4]) //2차원배열을 출력하는 함수
+{
+    int i, j;
+    for(i=0; i < 4; i++)
+    {
+        for(j=0; j < 4; j++)
+        {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void MakeArr (int arr[][4], int line, int row)  //2차원 배열에 원소를 인덱스+1의 값을 넣어주는 함수
+{
+    int num = 1;
+    int i, j;
+    for(i=0; i < line; i++)
+    {
+        for(j=0; j < row; j++)
+        {
+            arr[i][j] = num;
+            num++;
+            
+        }
+        
+    }
+}
+
+void CopyArr(int arr1[][4], int arr2[][4])  //배열을 복사하는 함수
+{
+    for (int i = 0; i < 4; i++)
+    {
+        for(int j = 0; j < 4 ; j++){
+            arr2[i][j] = arr1[i][j];
+        }
+    }
+}
+
+void Spin(int ar[][4]) //배열을 돌려주는 함수
+{
+    int i,j;
+    int a,b;
+    int arr[4][4];
+    CopyArr(ar,arr);
+    a = 3;
+  
+   for(i=0; i < 4; i++)
+    {
+        b = 0;
+        for(j=0; j<4; j++)
+        {
+            ar[b][a] = arr[i][j];
+            b++;
+            
+        }
+        
+        a--;
+        
+    }
+    ShowArr(ar);
+    printf("\n\n");
+    
+}
+
+int main()
+{
+    int arr[4][4];
+    MakeArr(arr, 4, 4);
+    Spin(arr);  // 잘 돌아가는지 테스트
+    Spin(arr);
+    Spin(arr);
+}
