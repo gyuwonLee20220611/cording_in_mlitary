@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+
+void ShowArr(int ar[][100], int nu)  // 배열을 출력해주는 함수
+{
+    int i, j;
+    for (i = 0; i <nu ; i++)
+    {
+        for(j = 0; j < nu; j++)
+        {
+            printf("%d ",ar[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+void Snail(int ary[][100], int nbr) //달팽이 배열 제작 함수
+{
+    int cnt = 0; 
+    int i = 0;
+    int j = 0;
+    int a = 0;
+    int line = 0;
+    int row = -1;
+    
+    while (nbr*nbr != cnt)
+    {
+        if ( a % 2 != 1)
+        {
+            for (i=0; i<nbr-a; i++)
+            {
+                row++;
+                cnt++;
+                ary[line][row]=cnt;
+            }
+            a++;
+            
+            for (j=0; j<nbr-a; j++)
+            {
+                line++;
+                cnt++;
+                ary[line][row] = cnt;
+            }    
+        }
+        
+        else
+        {
+            for (i = 0; i < nbr-a ; i++)
+            {
+                row--;
+                cnt++;
+                ary[line][row] = cnt;
+            }
+            a++;
+            
+            for(j = 0; j < nbr-a;j++)
+            {
+                line--;
+                cnt++;
+                ary[line][row] = cnt;
+            }
+        }
+    }
+}
+
+int main ()
+{
+    int num; 
+    printf("정수입력: ");
+    scanf("%d", &num);
+    int arr[100][100];
+    Snail(arr, num);
+    ShowArr(arr,num);
+}
