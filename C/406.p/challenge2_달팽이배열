@@ -1,5 +1,6 @@
+/*사용자가 100이하의 수를 입력하면 n*n의 크기의 
+달팽이 모양으로 수가 커지는 2차원배열이 생성됨*/
 #include <stdio.h>
-
 
 void ShowArr(int ar[][100], int nu)  // 배열을 출력해주는 함수
 {
@@ -67,7 +68,7 @@ void Snail(int ary[][100], int nbr) //달팽이 배열 제작 함수
 int main ()
 {
     int num; 
-    printf("정수입력: ");
+    printf("정수를 입력해주세요: ");
     scanf("%d", &num);
     int arr[100][100];
     Snail(arr, num);
