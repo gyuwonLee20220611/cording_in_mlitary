@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int i;
+    int dice[6] = {1,2,3,4,5,6};
+    srand((int)time(NULL));
+    for(i=0; i<2; i++)
+    {
+        printf("주사위 %d의 결과: %d \n",(i+1), dice[rand()%6]);
+    }
+}
