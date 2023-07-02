@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int num;
+    int draw, win =0;
+    const char * RSP[3] = {"바위","가위","보"};
+    srand((int)time(NULL));
+    while(num-1)
+    {
+        printf("바위는 1, 가위는 2, 보는3: " );
+        scanf("%d",&num);
+        if(num-rand()%3 == 0)
+        {
+            printf("당신은 %s 선택, 컴퓨터는 %s 선택, 비겼습니다.", RSP[num-1],RSP[rand()%3]);
+            printf("\n");
+            draw++;
+        }
+        else if (num - rand()%3 == -1 ||num - rand()%3 == 2)
+        {
+            printf("당신은 %s 선택, 컴퓨터는 %s 선택, 이겼습니다.",RSP[num-1],RSP[rand()%3]);
+            printf("\n");
+            win++;
+        }
+        else
+        {
+            printf("당신은 %s 선택, 컴퓨터는 %s 선택, 당신이 졌습니다.",RSP[num-1],RSP[rand()%3]);
+            printf("\n\n게임의 결과 :%d승, %d무 ", win,draw);
+            break;
+        }
+    }
+}
