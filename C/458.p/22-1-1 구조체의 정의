@@ -6,19 +6,24 @@ typedef struct employee{
     char money[40];
 }Employee;
 
+void CleanBSN (){
+    while(fgetc(stdin) != '\n');
+}
+
 int main (){
     Employee man;
     
     printf("종업원의 이름을 입력해주세요: ");
     scanf("%s", man.name);
     
+    CleanBSN();
     printf("종업원의 주민등록번호를 입력해주세요: ");
-    scanf("%s", man.PerID);
+    fgets(man.PerID, sizeof(man.PerID), stdin);
     
     printf("종업원의 급여정보를 입력해주세요: ");
     scanf("%s", man.money);
     
     printf("종업원의 이름: %s\n", man.name);
-    printf("종업원의 주민등록번호: %s\n", man.PerID);
+    printf("종업원의 주민등록번호: %s", man.PerID);
     printf("종업원의 급여정보: %s", man.money);
 }
