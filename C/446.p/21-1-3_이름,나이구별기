@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int CheckBlankPoint(char st[]){
+    int cnt = 0;
+    
+    while (st[cnt] != ' ')
+        cnt++;
+    
+    return cnt;
+}
+
+int main (){
+    char str1[30];
+    char str2[30];
+    int blank1, blank2;
+    int age1, age2;
+    
+    printf("이름과 나이를 입력해주세요(공백 구분): ");
+    fgets(str1, sizeof(str1),stdin);
+    printf("이름과 나이를 입력해주세요(공백 구분): ");
+    fgets(str2, sizeof(str2),stdin);
+    
+    blank1 = CheckBlankPoint(str1);
+    blank2 = CheckBlankPoint(str2);
+    
+    if (!strncmp(str1, str2, blank1-1))
+        printf("이름이 일치합니다.\n");
+    
+    else
+        printf("이름이 불일치합니다.\n");
+    
+    age1 = atoi(&str1[CheckBlankPoint(str1)+1]);
+    age2 = atoi(&str2[CheckBlankPoint(str2)+1]);
+    
+    if (age1 == age2)
+        printf("나이가 일치합니다.");
+    else
+        printf("나이가 불일치 합니다.");
+}
