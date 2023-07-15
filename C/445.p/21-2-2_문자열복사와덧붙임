@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void ClearBSN (char str[]){
+    str [strlen(str)-1] = 0;
+}
+
+int main (){
+    
+    char str1[20];
+    char str2[20];
+    char str3[40];
+    
+    printf("문자열을 입력해주세요: ");
+    fgets(str1,sizeof(str1), stdin);
+    
+    printf("문제열을 입력해주세요: ");
+    fgets(str2,sizeof(str2), stdin);
+    
+    ClearBSN(str1);
+    ClearBSN(str2);
+    
+    strcpy(str3,str1);
+    strcat(str3,str2);
+    puts(str3);
+    
+}
