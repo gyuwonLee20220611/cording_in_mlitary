@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main()
+{
+    char str[100];
+    int num[100];
+    int cnt = 0;
+    int i;
+    
+    printf("숫자를 포함한 문자열을 입력해주세요: ");
+    scanf("%s",str);
+    
+    int len = strlen(str);
+    
+    for (i=0; i < len; i++){
+        if(str[i] >= '0' && str[i] <= '9'){
+            cnt += str[i] - 48;
+        }
+    }
+
+    printf ("%d", cnt);
+}
