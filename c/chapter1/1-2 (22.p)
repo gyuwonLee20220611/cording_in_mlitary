@@ -1,0 +1,16 @@
+#include <iostream>
+
+int main (){
+    char name[10];
+    char pn[25];
+    
+    std::cout<<"이름을 입력해주세요: ";
+    std::cin>>name;
+    
+    std::cout<<"전화번호를 입력해주세요: ";
+    std::cin>>pn;
+    
+    
+    std::cout<<std::endl<<"이름: "<<name<<std::endl;
+    std::cout<<"전화번호: "<<pn<<std::endl;
+}
