@@ -1,0 +1,159 @@
+#include <iostream>
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+int SelectMenu ();
+void MakingAccunt();
+void DepositMoney();
+void WithdrawMoney();
+void BalanceInquiry();
+
+typedef struct account{
+    int id;
+    char name[20];
+    unsigned int balance;
+}Account;
+
+Account accArr[100];
+int accNum=0;
+
+int main (){
+    int sel;
+    while (true){
+        sel = SelectMenu();
+        if (sel == 1){
+            MakingAccunt();
+        }
+        else if (sel == 2){
+            DepositMoney();   
+        }
+         else if (sel == 3){
+             WithdrawMoney();   
+        }
+        else if (sel == 4){
+            BalanceInquiry();   
+        }
+        else if (sel == 5){
+            cout<<endl<<"프로그램을 종료합니다.";
+            break;
+        }
+        else{
+            cout<<endl<<"잘못된 입력입니다."<<endl;
+            cout<<endl<<endl;
+        }
+        
+    }
+}
+
+int SelectMenu(){
+    int slt;
+    
+    cout<<"-----Menu------"<<endl;
+    cout<<"1. 계좌개설"<<endl;
+    cout<<"2. 입 금"<<endl;
+    cout<<"3. 출 금"<<endl;
+    cout<<"4. 계좌정보 전체 출력"<<endl;
+    cout<<"5. 프로그램 종료"<<endl;
+    
+    cout<<"선택: ";
+    cin>>slt;
+    
+    cout<<endl<<endl;
+    return slt;
+}
+
+void MakingAccunt(){
+    cout<<"[계좌개설]"<<endl;
+    
+    cout<<"계좌ID: ";
+    cin>>accArr[accNum].id;
+    
+    cout<<"이 름: ";
+    cin>>accArr[accNum].name;
+    
+    cout<<"입금액: ";
+    cin>>accArr[accNum].balance;
+    accNum++;
+    
+    cout<<endl<<endl;
+}
+
+void DepositMoney(){
+    int accid;
+    int money;
+    int i;
+    cout<<"[입 금]"<<endl;
+    cout<<"계좌ID: ";
+    cin>>accid;
+    
+    for (i=0;i<accNum;i++){
+        
+        if (accArr[i].id == accid){
+            cout<<"입금액: ";
+            cin>>money;
+            
+            accArr[i].balance += money;
+            
+            cout<<"입금 완료"<<endl;
+            break;
+        }
+        else if (i == (accNum-1)){
+            cout<<"존재하지 않는 계좌번호 입니다."<<endl;
+            
+        }
+        
+    }   
+    cout<<endl<<endl;
+}
+
+void WithdrawMoney(){
+    int accid;
+    int money;
+    int i;
+    
+    cout<<"[출 금]"<<endl;
+    
+    cout<<"게좌ID: ";
+    cin>>accid;
+            
+    for (i=0;i<accNum;i++){
+        
+        if (accArr[i].id == accid){
+            cout<<"계좌 잔액: "<<accArr[i].balance<<endl;
+            cout<<"출금액: ";
+            cin>>money;
+            
+            if(accArr[i].balance >= money){
+                accArr[i].balance -= money;
+                cout<<"출금 완료"<<endl;
+                
+                
+                break;
+            }
+            else{
+                cout<<"계좌의 잔액을 초과 했습니다."<<endl;
+                
+            }
+        }
+        else if (i == (accNum-1)){
+            cout<<"존재하지 않는 계좌번호 입니다."<<endl;
+        }
+        
+    }
+    cout<<endl<<endl;
+}
+
+void BalanceInquiry(){
+    for (int i=0;i<accNum;i++){
+        
+        cout<<i+1<<"번 계좌"<<endl;
+        
+        cout<<"계좌ID: "<<accArr[i].id<<endl;
+        cout<<"이 름: "<<accArr[i].name<<endl;
+        cout<<"잔 액: "<<accArr[i].balance<<endl;
+        
+        cout<<endl<<endl;
+    }
+}
