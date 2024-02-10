@@ -1,0 +1,17 @@
+/* const int num= 12;
+위의 코드를 가리키는 참조자와 포인터를 설정해서 두가지 방식으로 값을 출력하는 코드를 구성하라
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int num=12;
+    
+    const int * ptr = &num;
+    const int &ref = num;
+    
+    cout<<"ptr: "<<*ptr<<endl;
+    cout<<"ref: "<<ref<<endl;
+}
