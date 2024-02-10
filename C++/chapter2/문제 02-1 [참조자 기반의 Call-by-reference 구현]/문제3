@@ -1,0 +1,38 @@
+/*다음의 코드에서 ptr1과 ptr2가 가리키는 대상이 서로 바꿔주는 함수인 SwapPointer을 정의해보자
+int main ()
+{
+    int num1=5;
+    int *ptr1=&num1;
+    int num2=10;
+    int *ptr2=&num2;
+    ...
+}
+*/
+
+//풀이
+#include <iostream>
+using namespace std;
+
+void SwapPointer(int * &pref1, int * &pref2)
+{
+    int * ptr = pref1;
+    
+    pref1 = pref2;
+    pref2 = ptr;
+}
+
+int main ()
+{
+    int num1=5;
+    
+    int *ptr1=&num1;
+    
+    int num2=10;
+    
+    int *ptr2=&num2;
+    
+    SwapPointer(ptr1,ptr2);
+    
+    cout<<"ptr1: "<< *ptr1 <<endl;
+    cout<<"ptr2: "<< *ptr2 <<endl;
+}
