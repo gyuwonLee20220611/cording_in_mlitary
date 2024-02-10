@@ -1,0 +1,28 @@
+/* 참조자를 이용해서 다음 요구사항에 부합하는 함수를 각각정의 하고 이를 확인하는 main 함수도 작성하여라.
+1. 인자로 전달된 int형 변수의 값을 1씩 증가시키는 함수
+2. 인자로 전달된 int형 변수의 부호를 바꾸는 함수
+*/
+
+#include <iostream>
+using namespace std;
+
+void Adder(int &ref)
+{
+    ref++;
+}
+
+void SignChanger(int &ref)
+{
+    ref = -ref;
+}
+
+int main()
+{
+    int num1 =10;
+    Adder(num1);
+    cout<<"1. num: "<<num1<<endl;
+    
+    int num2 = 20;
+    SignChanger(num2);
+    cout<<"2. num: "<<num2<<endl;
+}
